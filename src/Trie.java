@@ -19,14 +19,14 @@ public class Trie {
         node.setWord();
     }
 
-    public boolean lookup(String word) {
+    public TrieNode lookup(String word) {
         TrieNode node = root;
         char[] letters = word.toCharArray();
         for (char letter : letters) {
-            if (node.getNext()[letter] == null) return false;
+            if (node.getNext()[letter] == null) return null;
             node = node.getNext()[letter];
         }
-        return node.isWord();
+        return node;
     }
 }
 
